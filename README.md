@@ -83,4 +83,4 @@ dotnet build -t:Run -f net8.0-android \
 
 ## 👩‍💻 Desenvolvedora
 
-**Adrielle Maciel de Sena** — 2026
+**Adrielle Maciel de Sena** — 2026# Adrielle_Agenda15_DS_II
