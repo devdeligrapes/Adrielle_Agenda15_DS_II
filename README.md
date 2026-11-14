@@ -79,8 +79,8 @@ dotnet build -t:Run -f net8.0-android \
 
 | Cadastro de Eventos | Resumo do Evento | 
 | :---: | :---: | 
-| <img src="prints/01_cadastro.png" width="260"> | <img src="prints/02_resumo.png" width="260"> | 
+| <img src="prints/01_cadastro.png" width="260"> | <img src="prints/02_cadastro.png" width="260"> | <img src="prints/03_resumo.png" width="260">
 
 ## 👩‍💻 Desenvolvedora
 
-**Adrielle Maciel de Sena** — 2026# Adrielle_Agenda15_DS_II
+**Adrielle Maciel de Sena — 2026**
