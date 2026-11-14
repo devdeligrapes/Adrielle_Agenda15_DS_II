@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.CadastroEvento"
+             Title="Cadastro de Eventos"
+             BackgroundColor="#FFF3EA">
+
+    <ContentPage.Resources>
+        <Style x:Key="Rotulo" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#992f4d" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontFamily" Value="GrapeSquishy" />
+        </Style>
+        
+        <Style x:Key="Campo" TargetType="Entry">
+            <Setter Property="TextColor" Value="#400e28" />
+            <Setter Property="PlaceholderColor" Value="#C98A93" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+        </Style>
+        
+        <Style x:Key="Data" TargetType="DatePicker">
+            <Setter Property="TextColor" Value="#400e28" />
+            <Setter Property="FontFamily" Value="GrapeSquishy" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14">
+
+        
+            <Border StrokeThickness="0" Padding="16,18">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#f08e73" Offset="0.0" />
+                        <GradientStop Color="#e8b787" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+                
+                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12" VerticalOptions="Center">
+                    <Image Grid.Column="0" Source="festa.png" HeightRequest="90" Aspect="AspectFit" />
+                    
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                        <Label Text="Novo Evento" FontSize="28" FontAttributes="Bold"
+                               TextColor="#400e28" HorizontalTextAlignment="Start" 
+                               FontFamily="ClassicFairy" />
+                        <Label Text="Preencha os dados para cadastrar" FontSize="13"
+                               TextColor="#992f4d" HorizontalTextAlignment="Start" 
+                               FontFamily="GrapeSquishy" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <Border BackgroundColor="White" Stroke="#f08e73" StrokeThickness="2" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="6">
+
+                    <Label Text="Nome do evento" Style="{StaticResource Rotulo}" />
+                    <Entry x:Name="txt_nome" Placeholder="Ex: Festa de Aniversário"
+                           Style="{StaticResource Campo}" />
+
+                    <Label Text="Data de abertura" Style="{StaticResource Rotulo}" Margin="0,8,0,0" />
+                    <DatePicker x:Name="dtpck_inicio" Format="dd/MM/yyyy"
+                                Style="{StaticResource Data}" />
+
+                    <Label Text="Data de encerramento" Style="{StaticResource Rotulo}" Margin="0,8,0,0" />
+                    <DatePicker x:Name="dtpck_termino" Format="dd/MM/yyyy"
+                                Style="{StaticResource Data}" />
+
+                    <Label Text="Número de participantes" Style="{StaticResource Rotulo}" Margin="0,8,0,0" />
+                    <Entry x:Name="txt_participantes" Placeholder="Ex: 50" Keyboard="Numeric"
+                           Style="{StaticResource Campo}" />
+
+                    <Label Text="Local do evento" Style="{StaticResource Rotulo}" Margin="0,8,0,0" />
+                    <Entry x:Name="txt_local" Placeholder="Ex: Salão de Festas"
+                           Style="{StaticResource Campo}" />
+
+                    <Label Text="Custo por participante (R$)" Style="{StaticResource Rotulo}" Margin="0,8,0,0" />
+                    <Entry x:Name="txt_custo" Placeholder="Ex: 39.99" Keyboard="Numeric"
+                           Style="{StaticResource Campo}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Cadastrar Evento" BackgroundColor="#992f4d" TextColor="White"
+                    FontAttributes="Bold" FontSize="18" CornerRadius="26" HeightRequest="52"
+                    Clicked="OnCadastrarClicked" 
+                    FontFamily="GrapeSquishy" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

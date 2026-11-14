@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.ResumoEvento"
+             Title="Resumo do Evento"
+             BackgroundColor="#FFF3EA">
+
+    <ContentPage.Resources>
+     
+        <Style x:Key="Rotulo" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#992f4d" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="GrapeSquishy" />
+        </Style>
+
+        <Style x:Key="Valor" TargetType="Label">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextColor" Value="#400e28" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="End" />
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14">
+
+            <Border StrokeThickness="0" Padding="16,14">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#f08e73" Offset="0.0" />
+                        <GradientStop Color="#e8b787" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="2">
+                    <Image Source="confirmado.png" HeightRequest="100" Aspect="AspectFit" />
+                    <Label Text="Evento Cadastrado!" FontSize="26" FontAttributes="Bold"
+                           TextColor="#400e28" HorizontalOptions="Center" 
+                           FontFamily="ClassicFairy" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="White" Stroke="#f08e73" StrokeThickness="2" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Resumo do Evento" FontSize="16" TextColor="#992f4d"
+                           FontAttributes="Bold" HorizontalOptions="Center" 
+                           FontFamily="GrapeSquishy" />
+
+                    <Grid ColumnDefinitions="*,2*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Evento:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nome}" Style="{StaticResource Valor}" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Local:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Local}" Style="{StaticResource Valor}" />
+
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Text="Abertura:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource Valor}" />
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Encerramento:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}" Style="{StaticResource Valor}" />
+
+                        <Label Grid.Row="4" Grid.Column="0" Text="Tempo:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding DuracaoTexto}" Style="{StaticResource Valor}" />
+
+                        <Label Grid.Row="5" Grid.Column="0" Text="Participantes:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding NumeroParticipantes, StringFormat='{0} pessoa(s)'}" Style="{StaticResource Valor}" />
+
+                        <Label Grid.Row="6" Grid.Column="0" Text="Por pessoa:" Style="{StaticResource Rotulo}" />
+                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding CustoPorParticipanteTexto}" Style="{StaticResource Valor}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="#e8b787" StrokeThickness="0" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Custo total do evento" FontSize="14" TextColor="#992f4d"
+                           HorizontalOptions="Center" FontFamily="GrapeSquishy" />
+                    <Label Text="{Binding CustoTotalTexto}" FontSize="32" FontAttributes="Bold"
+                           TextColor="#400e28" HorizontalOptions="Center" 
+                           FontFamily="ClassicFairy" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Novo Cadastro" BackgroundColor="#f25872" TextColor="White"
+                    FontAttributes="Bold" FontSize="18" CornerRadius="26" HeightRequest="52"
+                    Clicked="OnNovoCadastroClicked" 
+                    FontFamily="GrapeSquishy" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
